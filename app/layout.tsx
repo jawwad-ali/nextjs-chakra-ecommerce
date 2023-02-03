@@ -1,18 +1,31 @@
-import './globals.css'
+import ChakraWrapper from "@/components/Chakra";
+import Navbar from "@/components/Navbar";
+import { Inter } from "@next/font/google";
 
-export default function RootLayout({
+const inter = Inter({ subsets: ["latin"] });
+
+const getCategories = async () => {
+  const url = await fetch("https://fakestoreapi.com/products/categories");
+  const res = await url.json();
+  return res;
+};
+
+export default async function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
+  const res = await getCategories();
+  console.log("res", res);
   return (
     <html lang="en">
-      {/*
-        <head /> will contain the components returned by the nearest parent
-        head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
-      */}
       <head />
-      <body>{children}</body>
+      <body className={inter.className}>
+        <ChakraWrapper>
+          <Navbar res={res} />
+          {children}
+        </ChakraWrapper>
+      </body>
     </html>
-  )
+  );
 }
