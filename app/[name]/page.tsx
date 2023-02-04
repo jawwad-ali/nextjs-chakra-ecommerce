@@ -3,7 +3,7 @@ import React from "react";
 type IProps = {
   params: { name: string };
   searchParams: { id: string };
-};
+}; 
 
 const ProductCategory = async ({ params, searchParams }: IProps) => {
   const getProductByCategory = async () => {
@@ -14,16 +14,16 @@ const ProductCategory = async ({ params, searchParams }: IProps) => {
     return res;
   };
   const res = await getProductByCategory();
-  console.log("pbc", res);
+  console.log("pbc", res); 
 
   return (
     <div style={{ marginTop: "250px" }}>
       {params.name}
-      <div>
+      <div> 
         {res.map((r: any) => (
           <p>{r.title}</p>
         ))}
-      </div>
+      </div> 
     </div>
   );
 };

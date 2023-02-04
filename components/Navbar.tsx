@@ -30,7 +30,7 @@ const Navbar = ({ res }: any) => {
   return (
     <Flex>
       <Flex
-        pos="fixed"
+        pos="relative"
         zIndex={10}
         alignItems={"center"}
         w="100%"
@@ -59,6 +59,7 @@ const Navbar = ({ res }: any) => {
                     variant={"ghost"}
                     aria-label="Home"
                     w="100%"
+                    transition={"all .4s ease"}
                     _hover={{ textDecoration: "underline" }}
                     fontSize={"15px"}
                   >
@@ -71,23 +72,26 @@ const Navbar = ({ res }: any) => {
         </Box>
 
         {/* right side */}
-        <Box display="flex">
+        <Box
+          display="flex"
+          transition={"all .4s ease"}
+          _hover={{ color: "blue", cursor: "pointer" }}
+        >
           <FaSearch style={{ fontSize: "20px", marginRight: "20px" }} />
           <FaCartPlus style={{ fontSize: "20px" }} />
         </Box>
 
         <Box>
-          <a
-            href="#"
-            style={{
-              padding: "20px 45px",
-              background: "transparent",
-              borderRadius: "30px",
-              border: "1px solid blue",
-            }}
+          <Button
+            py="6"
+            px="10"
+            variant="outline"
+            borderRadius={"30px"}
+            transition={"all .4s ease"}
+            _hover={{ border: "1px solid blue" }}
           >
             Buy Now
-          </a>
+          </Button>
         </Box>
       </Flex>
     </Flex>
