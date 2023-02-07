@@ -51,8 +51,8 @@ const Navbar = ({ response }: any) => {
           <Box w="58%">
             <Flex>
               {cat?.map((c) => (
-                <NextLink href={`/${c}`} passHref key={c}>
-                  <Button
+                <NextLink href={`/category/${c}`} passHref key={c}>
+                  <Button 
                     variant={"ghost"}
                     aria-label="Home"
                     w="100%"

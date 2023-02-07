@@ -31,10 +31,10 @@ const ProductCategory = async ({ params, searchParams }: IProps) => {
 
 export default ProductCategory;
 
-export async function generateStaticParams() {
-  const names: string[] = ["zia", "zeeshan", "hira"];
+// export async function generateStaticParams() {
+//   const names: string[] = ["zia", "zeeshan", "hira"];
 
-  return names.map((name) => ({
-    name: name,
-  }));
-}
+//   return names.map((name) => ({
+//     name: name,
+//   }));
+// }
