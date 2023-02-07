@@ -1,17 +1,15 @@
 "use client";
 import { Flex, Button, IconButton, Box } from "@chakra-ui/react";
 import { useState, useEffect } from "react";
-import {
-  FaCartPlus,
-  FaGripLines,
-  FaRegWindowClose,
-  FaSearch,
-} from "react-icons/fa";
+import { FaCartPlus, FaSearch } from "react-icons/fa";
 import NextLink from "next/link";
 import Image from "next/image";
 import Logo from "../assets/logo.png.webp";
+import { Inter } from "@next/font/google";
 
-const Navbar = ({ res }: any) => {
+const inter = Inter({ subsets: ["latin"] });
+
+const Navbar = ({ response }: any) => {
   const [display, setDisplay] = useState("none");
 
   // storing categories in state
@@ -23,9 +21,8 @@ const Navbar = ({ res }: any) => {
   }
 
   useEffect(() => {
-    setCat(res);
-    console.log("cat", cat);
-  });
+    setCat(response);
+  }, [cat]);
 
   return (
     <Flex>
@@ -53,8 +50,8 @@ const Navbar = ({ res }: any) => {
           {/* menu items */}
           <Box w="58%">
             <Flex>
-              {cat.map((c) => (
-                <NextLink href={c} passHref>
+              {cat?.map((c) => (
+                <NextLink href={`/${c}`} passHref key={c}>
                   <Button
                     variant={"ghost"}
                     aria-label="Home"
@@ -62,6 +59,7 @@ const Navbar = ({ res }: any) => {
                     transition={"all .4s ease"}
                     _hover={{ textDecoration: "underline" }}
                     fontSize={"15px"}
+                    className={inter.className}
                   >
                     {capitalizeFirstLetter(c)}
                   </Button>
@@ -89,6 +87,7 @@ const Navbar = ({ res }: any) => {
             borderRadius={"30px"}
             transition={"all .4s ease"}
             _hover={{ border: "1px solid blue" }}
+            className={inter.className}
           >
             Buy Now
           </Button>

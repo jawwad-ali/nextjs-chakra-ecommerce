@@ -10,11 +10,11 @@ import { Box } from "@chakra-ui/react";
 
 const Gallery = () => {
   return (
-    <>
+    <> 
       <div className={style.body}>
         <div className={style.container}>
           {/* @ts-ignore */}
-          <Image src={HeadPhone} alt="headphone" className={style.image} />
+          <Image src={HeadPhone} alt="headphone" className={style.image} loading="lazy" />
           <div className={style.overlay}>
             <div className={style.textTwo}>Wireless HeadPhone</div>
           </div>
@@ -22,7 +22,7 @@ const Gallery = () => {
 
         <div className={style.containerTwo}>
           {/* @ts-ignore */}
-          <Image src={Shoes} alt="shoe" className={style.image} />
+          <Image src={Shoes} alt="shoe" className={style.image}loading="lazy" />
           <div className={style.overlayTwo}>
             <div className={style.textTwo}>Wireless HeadPhone</div>
           </div>
@@ -30,7 +30,8 @@ const Gallery = () => {
 
         <div className={style.containerThree}>
           {/* @ts-ignore */}
-          <Image src={Dice} alt="Dice" className={style.image} />
+
+          <Image src={Dice} alt="Dice" className={style.image} loading="lazy"   />
           <div className={style.overlayThree}>
             <div className={style.textTwo}>Wireless HeadPhone</div>
           </div>

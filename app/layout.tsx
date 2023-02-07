@@ -1,13 +1,17 @@
 import ChakraWrapper from "@/components/Chakra";
 import Navbar from "@/components/Navbar";
-import { Inter } from "@next/font/google";
+import axios from "axios";
 
-const inter = Inter({ subsets: ["latin"] });
-
-const getCategories = async () => {
-  const url = await fetch("https://fakestoreapi.com/products/categories");
-  const res = await url.json();
-  return res;
+const getCategories = async () => { 
+  try {
+    const response = await axios.get(
+      `https://fakestoreapi.com/products/categories`
+    );
+    // console.log(response?.data);
+    return response?.data;
+  } catch (error) {
+    console.error(error);
+  }
 };
 
 export default async function RootLayout({
@@ -15,14 +19,14 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const res = await getCategories();
-  console.log("res", res);
+  const response = await getCategories();
+  // console.log("response", response);
   return (
     <html lang="en">
       <head />
-      <body className={inter.className}>
+      <body>
         <ChakraWrapper>
-          <Navbar res={res} />
+          <Navbar response={response} />
           {children}
         </ChakraWrapper>
       </body>

@@ -1,31 +1,40 @@
 import React from "react";
+import ProductList from "./ProductList";
+
+import axios from "axios";
 
 type IProps = {
   params: { name: string };
   searchParams: { id: string };
-}; 
+};
 
 const ProductCategory = async ({ params, searchParams }: IProps) => {
-  const getProductByCategory = async () => {
-    const url = await fetch(
-      `https://fakestoreapi.com/products/category/${params.name}`
-    );
-    const res = await url.json();
-    return res;
-  };
-  const res = await getProductByCategory();
-  console.log("pbc", res); 
+  async function getProductByCategory() {
+    try {
+      const response = await axios.get(
+        `https://fakestoreapi.com/products/category/${params?.name}`
+      );
+      console.log(response.data);
+      return response.data;
+    } catch (error) {
+      console.error(error);
+    }
+  }
+  const response = await getProductByCategory();
 
   return (
-    <div style={{ marginTop: "250px" }}>
-      {params.name}
-      <div> 
-        {res.map((r: any) => (
-          <p>{r.title}</p>
-        ))}
-      </div> 
+    <div>
+      <ProductList response={response} />
     </div>
   );
 };
 
 export default ProductCategory;
+
+export async function generateStaticParams() {
+  const names: string[] = ["zia", "zeeshan", "hira"];
+
+  return names.map((name) => ({
+    name: name,
+  }));
+}

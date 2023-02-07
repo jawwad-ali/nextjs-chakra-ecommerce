@@ -1,8 +1,14 @@
 "use client";
-import { Box, Button, Center, Heading, Text } from "@chakra-ui/react";
+import { Box, Button, Heading, Text } from "@chakra-ui/react";
 import React from "react";
 import HeroBanner from "../assets/hero-banner.png.webp";
 import Image from "next/image";
+import { Roboto } from "@next/font/google";
+
+const roboto = Roboto({
+  weight: ["400", "700"],
+  subsets: ["latin"],
+});
 
 const HeroSection = () => {
   return (
@@ -26,6 +32,7 @@ const HeroSection = () => {
       }}
     >
       <Image
+        loading="lazy"
         src={HeroBanner}
         alt="Hero banner"
         style={{ position: "relative", marginLeft: "120px", top: "50px" }}
@@ -41,14 +48,22 @@ const HeroSection = () => {
         alignItems={"start"}
         width="500px"
       >
-        <Heading fontWeight={"medium"} fontSize="30px" color="#555" as="h4">
+        <Heading
+          fontWeight={"hairline"}
+          fontSize="30px"
+          color="#555"
+          as="h4"
+          className={roboto.className}
+        >
           Shop is fun
         </Heading>
         <Heading
           fontSize="50px"
           mt="10px"
-          fontWeight={"700"}
+          fontWeight={"bold"}
           lineHeight={"55px"}
+          color="#222"
+          className={roboto.className}
         >
           BROWSE OUR PREMIUM PRODUCT
         </Heading>
@@ -59,7 +74,7 @@ const HeroSection = () => {
           fontWeight={400}
           mt="9"
         >
-          Us which over of signs divide dominion deep fill bring they're meat
+          Us which over of signs divide dominion deep fill bring they&apos;re meat
           beho upon own earth without morning over third. Their male dry. They
           are great appear whose land fly grass.
         </Text>
@@ -83,55 +98,8 @@ const HeroSection = () => {
         >
           Browse Now
         </Button>
-
-        {/* <button
-          style={{
-            padding: "12px 41px",
-            marginTop: "40px",
-            //   border={"1px solid #384aeb"}
-            backgroundColor: "#384aeb",
-            color: "white",
-            borderRadius: "30px",
-            fontSize: "15px",
-          }}
-        >
-          Browse Now
-        </button> */}
       </Box>
     </Box>
-
-    // <Box position={"relative"} mt="-3" w={"100%"} display={"flex"}>
-    //   <Box
-    //     zIndex={999}
-    //     _before={{
-    //       content: "''",
-    //       display: "block",
-    //       zIndex: "-1",
-    //       height: "100%",
-    //       backgroundColor: "#384aeb",
-    //       position: "absolute",
-    //       width: "35%",
-    //       top: 0,
-    //       left: 0,
-    //     }}
-    //   >
-    //     <Image
-    //       src={HeroBanner}
-    //       alt="Hero Banner"
-    //       style={{
-    //         position: "relative",
-    //         left: "118px",
-    //         top: "60px",
-    //         overflow: "hidden",
-    //         width: "462px",
-    //       }}
-    //     />
-    //   </Box>
-
-    //   <Box bg="yellow" w="67.6%">
-    //     <Text>Hello</Text>
-    //   </Box>
-    // </Box>
   );
 };
 
