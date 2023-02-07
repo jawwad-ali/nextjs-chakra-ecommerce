@@ -5,12 +5,12 @@ import axios from "axios";
 const getCategories = async () => { 
   try {
     const response = await axios.get(
-      `https://fakestoreapi.com/products/categories`
+      `https://fakestoreapi.com/products/categories` 
     );
     // console.log(response?.data);
     return response?.data;
   } catch (error) {
-    console.error(error);
+    console.error(error); 
   }
 };
 

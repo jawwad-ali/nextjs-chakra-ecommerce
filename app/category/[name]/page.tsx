@@ -1,11 +1,10 @@
 import React from "react";
 import ProductList from "./ProductList";
-
 import axios from "axios";
 
 type IProps = {
-  params: { name: string };
-  searchParams: { id: string };
+  params?: { name: string };
+  searchParams?: { id: string };
 };
 
 const ProductCategory = async ({ params, searchParams }: IProps) => {
