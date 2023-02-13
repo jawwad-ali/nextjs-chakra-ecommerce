@@ -10,7 +10,7 @@ import { Inter } from "@next/font/google";
 const inter = Inter({ subsets: ["latin"] });
 
 const Navbar = ({ response }: any) => {
-  const [display, setDisplay] = useState("none");
+  const [display, setDisplay] = useState("none"); 
 
   // storing categories in state
   const [cat, setCat] = useState([]);

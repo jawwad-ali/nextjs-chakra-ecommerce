@@ -2,6 +2,7 @@
 import { Box, Flex, Heading, SimpleGrid, Text } from "@chakra-ui/react";
 import { Oswald, Roboto } from "@next/font/google";
 import Image from "next/legacy/image";
+import Link from "next/link";
 
 const roboto = Roboto({
   weight: ["400", "700"],
@@ -34,7 +35,6 @@ function capitalizeFirstLetter(string: string) {
 }
 
 export default function ProductList({ response }: ProductType) {
-  console.log("FR", response);
   return (
     <Flex>
       {/* Page Heading */}
@@ -45,7 +45,7 @@ export default function ProductList({ response }: ProductType) {
           fontSize="15px"
           color="#777"
         >
-          Popular Item in the market
+          Popular Item in the market 
         </Text>
         <Heading
           className={oswald.className}
@@ -76,44 +76,48 @@ export default function ProductList({ response }: ProductType) {
                     layout="responsive"
                     width={"50"}
                     loading="lazy"
-                    height="50"
+                    height="50" 
                   />
                 </>
-                <Box
-                  mt={5}
-                  display="flex"
-                  flexDirection={"column"}
-                  justifyContent={"center"}
-                  alignItems={"center"}
+                <Link
+                  href={`/category/${result.category}/${result.id.toString()}`}
                 >
-                  <Text
-                    color="#777"
-                    fontSize="15px"
-                    className={roboto.className}
-                    fontWeight={"light"}
-                    pb={2}
+                  <Box
+                    mt={5}
+                    display="flex"
+                    flexDirection={"column"}
+                    justifyContent={"center"}
+                    alignItems={"center"}
                   >
-                    {capitalizeFirstLetter(result.category)}
-                  </Text>
-                  <Text
-                    textAlign={"center"}
-                    fontSize="20px"
-                    className={oswald.className}
-                    fontWeight={"light"}
-                    mb="2"
-                    noOfLines={1}
-                  >
-                    {result.title}
-                  </Text>
-                  <Text
-                    textAlign={"center"}
-                    fontSize="18px"
-                    color="#777"
-                    fontWeight={500}
-                  >
-                    ${result.price}
-                  </Text>
-                </Box>
+                    <Text
+                      color="#777"
+                      fontSize="15px"
+                      className={roboto.className}
+                      fontWeight={"light"}
+                      pb={2}
+                    >
+                      {capitalizeFirstLetter(result.category)}
+                    </Text>
+                    <Text
+                      textAlign={"center"}
+                      fontSize="20px"
+                      className={oswald.className}
+                      fontWeight={"light"}
+                      mb="2"
+                      noOfLines={1}
+                    >
+                      {result.title}
+                    </Text>
+                    <Text
+                      textAlign={"center"}
+                      fontSize="18px"
+                      color="#777"
+                      fontWeight={500}
+                    >
+                      ${result.price}
+                    </Text>
+                  </Box>
+                </Link>
               </Box>
             ))}
           </SimpleGrid>

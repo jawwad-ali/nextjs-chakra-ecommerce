@@ -32,7 +32,7 @@ const HeroSection = () => {
       }}
     >
       <Image
-        loading="lazy"
+        loading="eager"
         src={HeroBanner}
         alt="Hero banner"
         style={{ position: "relative", marginLeft: "120px", top: "50px" }}
