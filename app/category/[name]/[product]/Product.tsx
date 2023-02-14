@@ -2,7 +2,6 @@
 import { useState } from "react";
 import {
   Box,
-  Button,
   ButtonGroup,
   Flex,
   Heading,
@@ -58,6 +57,7 @@ const Product = ({ response }: ProductType) => {
             <Image
               //   style={{ backgroundColor: "silver" }}
               src={response.image}
+            //   loading="lazy" 
               height={350}
               width={350}
               alt={response.title}

@@ -32,7 +32,7 @@ const HeroSection = () => {
       }}
     >
       <Image
-        loading="eager"
+        priority
         src={HeroBanner}
         alt="Hero banner"
         style={{ position: "relative", marginLeft: "120px", top: "50px" }}
@@ -74,9 +74,9 @@ const HeroSection = () => {
           fontWeight={400}
           mt="9"
         >
-          Us which over of signs divide dominion deep fill bring they&apos;re meat
-          beho upon own earth without morning over third. Their male dry. They
-          are great appear whose land fly grass.
+          Us which over of signs divide dominion deep fill bring they&apos;re
+          meat beho upon own earth without morning over third. Their male dry.
+          They are great appear whose land fly grass.
         </Text>
 
         <Button
