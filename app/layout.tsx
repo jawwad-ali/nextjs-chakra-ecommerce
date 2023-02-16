@@ -13,7 +13,7 @@ const getCategories = async () => {
     console.error(error); 
   }
 };
-
+ 
 export default async function RootLayout({
   children,
 }: {
